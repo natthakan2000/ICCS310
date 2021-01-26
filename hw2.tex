@@ -65,7 +65,7 @@ We will also have a function that tell us what is the carry bit when we sum the 
 If $L_1$ and $L_2$ are regular then their should be a DFA for both $L_1$ and $L_2$.  Then we can construct a DFA $L_1 = L(M)$. Let the DFA be $M = (Q,\Sigma,\delta,q_0,F)$. We will construct another DFA that will run with the first DFA. Let it be $\hat{M} = (Q,\Sigma,\delta,q_0,\hat{F})$. For each node, if there is a walk from that node to the final node using a string in $L_2$ then put that node in $\hat{F}$. After looking through every $q_i$ we have constructed $\hat{M}$. Now we have 2 DFA. Let k be an element in $L_1/L_2$. Then there should be $k \in L_2$ such that $a \cdot k \in L_1$. This indicate that $\delta^*(q_0,a \cdot k) \in F$. So there must be an element $b \in Q$ such that $\delta^*(q_0, k) = b$ and $\delta^*(b, a) \in F$. We already show that $\hat{M}$ accept k. This implies that $a \in L_2$. So $a \cdot k \in L_1$ and that $L_1/L_2$ is regular.
 
 \question{5}{Does It Accept Everything?}
-If we minimize a DFA using regular expression and the it's left with only accepting state then the DFA accept everything. This is because 
+If we minimize a DFA using regular expression and the it's left with only accepting state then the DFA accept everything. 
 
 
 \end{document}
