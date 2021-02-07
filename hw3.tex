@@ -37,6 +37,11 @@
 \myemail \\
 February 2021 \\
 \end{center}
+
+\question{1}{NFA vs DFA Expressiveness}
+\part{1}\\
+Let construct an NFA, $M = (Q,\Sigma,\delta,q_0,F) $ where $Q = \{0, 1, ..., k\}$. Let $\delta(0,b) = 0, \delta(0,1) = \{0,a\} = \{0,1\}$ and $\delta(i - 1, a) = i$, for $2 \leq i \leq k$. Then set $q_0 = 0$ and $F = \{k\}$. We know that the machine will start at state 0 (starting state). When the machine locate an $a$ it wil guess that it is a kth character to the right and will move to state 1. When it reaches state k, it will only accept if there are exactly $k-1$ bits following the one that move from $b$ to $a$.
+
 \question{4}{HackerRank Challenge}
 Natthakan Euaumpon\\
 @natthakaneuaump1
