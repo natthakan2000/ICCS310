@@ -4,6 +4,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{fancyhdr}
+\usepackage{graphicx}
 
 \usepackage[margin=1in]{geometry}
 
@@ -47,10 +48,17 @@ Let the input have k character. We know that the characters can be either $a$ or
 
 \question{2}{Regular or Not}
 \part{$L_1$}\\
-We know that y can be any string in $\Sigma^*$. We only need to detect $x$ and $x^r$. 
+We know that y can be any string in $\Sigma^*$. \\
+\includegraphics[width=\textwidth]{Q2-1-1.png}\\
+There are 2 main scenario. One is that the String x start with p and another is that it start with q.\\
+$q_0$ is a starting state.\\
+$q_1$ is a state that it will move to if the first character is p.\\
+$q_2$ is an accepting state, if the iput start with p then it should also end with p.\\
+$q_3$ is a state that it will move to if the first character is q.\\
+$q_4$ is an accepting state, if the iput start with q then it should also end with q.
 
 \part{$L_2$}\\
-AFSOC, let assume that $L_2$ is regular. This mean their is a pumping length $l \geq 1$.  Consider string $S = p^lqqp^l$, $S \in L_2, |S| \geq l$. Since $S = ww^R$, where $w = p^lq$ then $S \in L_2$. From this we know that:
+AFSOC, that $L_2$ is regular. This mean their is a pumping length $l \geq 1$.  Consider string $S = p^lqqp^l$, $S \in L_2, |S| \geq l$. Since $S = ww^R$, where $w = p^lq$ then $S \in L_2$. From this we know that:
 \begin{enumerate}
 	\item S can be split into $S = xyz$
 	\item $|xy| \leq l$
@@ -62,7 +70,7 @@ If we pump y 0 times then the string S will be $S = xz$. $xz = p^{l-k}qqp^l$. We
 
 \question{3}{Nonregular}
 \part{1}\\
-AFSOC, let assume that L is regular then their is a pumping length $p \geq 1$. Consider a string $S = 10^{2^p}, S \in L$. From this we know that:
+AFSOC, that L is regular then their is a pumping length $p \geq 1$. Consider a string $S = 10^{2^p}, S \in L$. From this we know that:
 \begin{enumerate}
 	\item S can be split into $S = xyz$, and $xy$ be arbitary element in L.
 	\item $|xy| \leq p$
@@ -73,6 +81,8 @@ AFSOC, let assume that L is regular then their is a pumping length $p \geq 1$. C
 \end{enumerate}
 From this we know that $xz = 10^{2^i} \cdot 10 ^{2^i}  = 10^{2^{i+1}}$, $xz \in L$. However $xy = 10^{2^i} \cdot 10^{2^j} = 10^{2^i+2^j}, xy \notin L$ as $i \neq j$. This contradict, therefore L is not regular.
 
+\part{2}\\
+AFSOC, that E is regular then their is a pumping length $p \geq 1$. Consider a string $S = $
 \question{4}{HackerRank Challenge}
 Natthakan Euaumpon\\
 @natthakaneuaump1
