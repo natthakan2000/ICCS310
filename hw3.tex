@@ -40,9 +40,27 @@ February 2021 \\
 
 \question{1}{NFA vs DFA Expressiveness}
 \part{1}\\
-Let construct an NFA, $M = (Q,\Sigma,\delta,q_0,F) $ where $Q = \{0, 1, ..., k\}$. Let $\delta(0,b) = 0, \delta(0,1) = \{0,a\} = \{0,1\}$ and $\delta(i - 1, a) = i$, for $2 \leq i \leq k$. Then set $q_0 = 0$ and $F = \{k\}$. We know that the machine will start at state 0 (starting state). When the machine locate an $a$ it wil guess that it is a kth character to the right and will move to state 1. When it reaches state k, it will only accept if there are exactly $k-1$ bits following the one that move from $b$ to $a$.\\
+Let construct an NFA, $M = (Q,\Sigma,\delta,q_0,F) $ where $Q = \{0, 1, ..., k\}$. Let $\delta(0,b) = 0, \delta(0,1) = \{0,a\} = \{0,1\}$ and $\delta(i - 1, a) = i$, for $2 \leq i \leq k$. Then set $q_0 = 0$ and $F = \{k\}$. We know that the machine will start at state 0 (starting state). When the machine locate an $a$ it wil guess that it is a kth character to the right and will move to state 1. When it reaches state k, it will only accept if there are exactly $k-1$ bits following the one that move from $b$ to $a$.
+
 \part{2}\\
 Let the input have k character. We know that the characters can be either $a$ or $b$. Let $x$ and $y$ be a string with k bit such that $x,y \in \Sigma^*$ and that $|x| = |y| = k$. Let $i$ be a position such that $x_i \neq y_i$. Hence either $x$ or $y$ contain an a at the ith position. Let $z = b^{i-1}$, then $z$ distinguish $x$ and $y$ as one of the $xz$ and $yz$ has an a at kth postion from the right. Since there are $2^k$ string of length k that are all distinguishable from the above prove, a DFA that accept this language need to have $2^k$ states. 
+
+\question{2}{Regular or Not}
+\part{$L_1$}\\
+We know that y can be any string in $\Sigma^*$. We only need to detect $x$ and $x^r$.
+
+\part{$L_2$}\\
+AFSOC, let assume that $L_2$ is regular. This mean their is a pumping length $l \geq 1$.  Consider string $S = p^lqqp^l$, $S \in L_2, |S| \geq l$. Since $S = ww^R$, where $w = p^lq$ then $S \in L_2$. From this we know that:
+\begin{enumerate}
+	\item S can be split into $S = xyz$
+	\item $|xy| \leq l$
+	\item $xy^iz \in L_2, i \geq 0$
+	\item $xy = p^j$, $j \leq l$
+	\item $y = p^k, k \geq 1$
+\end{enumerate}
+If we pump y 0 times then the string S will be $S = xz$. $xz = p^{l-k}qqp^l$. We state that $k \geq 1$, this mean $xz \notin L_2$. This contradict, therefore $L_2$ is not regular.
+
+\question{3}{Nonregular}
 
 \question{4}{HackerRank Challenge}
 Natthakan Euaumpon\\
