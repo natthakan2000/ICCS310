@@ -47,7 +47,7 @@ Let the input have k character. We know that the characters can be either $a$ or
 
 \question{2}{Regular or Not}
 \part{$L_1$}\\
-We know that y can be any string in $\Sigma^*$. We only need to detect $x$ and $x^r$.
+We know that y can be any string in $\Sigma^*$. We only need to detect $x$ and $x^r$. 
 
 \part{$L_2$}\\
 AFSOC, let assume that $L_2$ is regular. This mean their is a pumping length $l \geq 1$.  Consider string $S = p^lqqp^l$, $S \in L_2, |S| \geq l$. Since $S = ww^R$, where $w = p^lq$ then $S \in L_2$. From this we know that:
@@ -61,6 +61,17 @@ AFSOC, let assume that $L_2$ is regular. This mean their is a pumping length $l 
 If we pump y 0 times then the string S will be $S = xz$. $xz = p^{l-k}qqp^l$. We state that $k \geq 1$, this mean $xz \notin L_2$. This contradict, therefore $L_2$ is not regular.
 
 \question{3}{Nonregular}
+\part{1}\\
+AFSOC, let assume that L is regular then their is a pumping length $p \geq 1$. Consider a string $S = 10^{2^p}, S \in L$. From this we know that:
+\begin{enumerate}
+	\item S can be split into $S = xyz$, and $xy$ be arbitary element in L.
+	\item $|xy| \leq p$
+	\item $xy^iz \in L, i \geq 0$
+	\item $x = 10^{2^i}$
+	\item $y = 10^{2^j}, 1 \leq j \leq i$
+	\item Let $z = 10^{2^i}$
+\end{enumerate}
+From this we know that $xz = 10^{2^i} \cdot 10 ^{2^i}  = 10^{2^{i+1}}$, $xz \in L$. However $xy = 10^{2^i} \cdot 10^{2^j} = 10^{2^i+2^j}, xy \notin L$ as $i \neq j$. This contradict, therefore L is not regular.
 
 \question{4}{HackerRank Challenge}
 Natthakan Euaumpon\\
