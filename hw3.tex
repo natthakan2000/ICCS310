@@ -49,7 +49,7 @@ Let the input have k character. We know that the characters can be either $a$ or
 \question{2}{Regular or Not}
 \part{$L_1$}\\
 We know that y can be any string in $\Sigma^*$. \\
-\includegraphics[width=\textwidth]{Q2-1-1.png}\\
+\includegraphics[width=\textwidth]{Q2-1-2.png}\\
 There are 2 main scenario. One is that the String x start with p and another is that it start with q.\\
 $q_0$ is a starting state.\\
 $q_1$ is a state that it will move to if the first character is p.\\
@@ -82,7 +82,14 @@ AFSOC, that L is regular then their is a pumping length $p \geq 1$. Consider a s
 From this we know that $xz = 10^{2^i} \cdot 10 ^{2^i}  = 10^{2^{i+1}}$, $xz \in L$. However $xy = 10^{2^i} \cdot 10^{2^j} = 10^{2^i+2^j}, xy \notin L$ as $i \neq j$. This contradict, therefore L is not regular.
 
 \part{2}\\
-AFSOC, that E is regular then their is a pumping length $p \geq 1$. Consider a string $S = $
+AFSOC, that E is regular then their is a pumping length $p \geq 1$. Consider a string $S = 0^px$. From this we know that:
+\begin{enumerate}
+	\item S can be split into $abc$.
+	\item $|ab| \leq p$
+	\item $ab^iz \in L, i \geq 0$
+	\item $ab = 0^p$
+	\item 
+\end{enumerate}
 \question{4}{HackerRank Challenge}
 Natthakan Euaumpon\\
 @natthakaneuaump1

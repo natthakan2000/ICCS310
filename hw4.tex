@@ -1,0 +1,158 @@
+% You should title the file with a .tex extension (hw1.tex, for example)
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\question}[2] {\vspace{.25in} \hrule\vspace{0.5em}
+\noindent{\bf #1: #2} \vspace{0.5em}
+\hrule \vspace{.10in}}
+\renewcommand{\part}[1] {\vspace{.10in} {\bf (#1)}}
+
+\newcommand{\myname}{Natthakan Euaumpon}
+\newcommand{\myemail}{natthakaneuaumpon@gmail.com}
+\newcommand{\myhwnum}{4}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+ 
+\pagestyle{fancyplain}
+\lhead{\fancyplain{}{\textbf{HW\myhwnum}}}      % Note the different brackets!
+\rhead{\fancyplain{}{\myname\\ \myemail}}
+\chead{\fancyplain{}{ICCS310 }}
+
+\begin{document}
+
+\medskip                        % Skip a "medium" amount of space
+                                % (latex determines what medium is)
+                                % Also try: \bigskip, \littleskip
+
+\thispagestyle{plain}
+\begin{center}                  % Center the following lines
+{\Large ICCS310: Assignment \myhwnum} \\
+\myname \\
+\myemail \\
+February 2021 \\
+\end{center}
+
+\question{1}{Eh? They Have The Same Cardinality}
+\part{1}\\
+$|[0,\frac{1}{2})| = |[0,1)|$\\
+Let $X = [0,\frac{1}{2})$ and $Y = [0,1)$\\
+Claim $|X| = |Y|$\\
+The function is bijective iff it is both injective and surjective.\\
+To prove this let a function $f$ be $f:X\rightarrow Y$ where $f(x) = 2x$\\
+First, let prove that the function is injective.\\
+We need to show that $\forall x,y \in X$ if $(f(x) = f(y)) \rightarrow (x=y)$.\\
+We can take any arbitary to show that $x,y \in X$. Let choose 1. So $2x = 2y$. Thus $x=y$ and that $f$ is injective.\\
+Second, we need to prove that f is surjective.\\
+We need to show that $\exists x \in X$ and $\forall y \in Y$ such that $f(x) = y$.\\
+WLOG, let assume $y \in Y$. If $x \in X$ then x = $\frac{y}{2}$. This means $f(x) = f(\frac{y}{2}) = 2(\frac{y}{2}) = y$. So, $f(x) = y$ and f is surjective.\\
+We already prove that f is both injective and surjective. Therefore f is bijective.
+
+\part{2}\\
+$|[0,1)| = |(-1,1)|$\\
+Let $X = [0,1)$ and $Y = (-1,1)$\\
+To prove this let a function $f$ be $f:X\rightarrow Y$ where $f(x) = -x$ and a function $g$ be $g:Y\rightarrow X$ where $g(x) = |x|$.\\
+First, let prove that the function f is injective.\\
+We need to show that $\forall x,y \in X$ if $(f(x) = f(y)) \rightarrow (x=y)$.\\
+We can take any arbitary to show that $x,y \in X$. Let choose 1. So $-x = -y$. Thus $x=y$ and that $f$ is injective.\\
+So, $|X| \leq |Y|.$\\
+Second, let prove that the function g is injective.\\
+We need to show that $\forall x,y \in Y$ if $(g(x) = g(y)) \rightarrow (x=y)$.\\
+We can take any arbitary to show that $x,y \in Y$. Let choose 1. So $|x| = |y|$. Thus $x=y$ and that $g$ is injective.\\
+So, $|X| \geq |Y|$\\
+This means $|X| = |Y|$.
+
+\part{3}\\
+$|[0,1)| = |\mathbb{R}|$\\
+From the question above, we know that $[0,1) = (-1,1)$.\\
+First, let prove that the function is injective.\\
+Consider a function f, $f:(-1,1)|\rightarrow \mathbb{R}$ where $f(x) = \frac{x}{1-x^2}$\\
+$f'(x) = \frac{1+x^2}{(1-x^2)^2}$\\
+$f'(x) > 0$\\
+This mean a function is injective.\\
+Second, we need to prove that f is surjective.\\
+We need to show that $\exists x \in X$ and $\forall y \in Y$ such that $f(x) = y$.\\
+WLOG, let $y \in \mathbb{R}$ and $y \neq 0$.\\
+$y = \frac{x}{1-x^2}$\\
+$yx^2+x-y=0$\\
+x = $\frac{-1 \pm \sqrt{1^2 - 4 \cdot 1 \cdot -y}}{2 \cdot y}$\\
+x = $\frac{-1 \pm \sqrt{1 + 4y}}{2y}$\\
+There are 2 cases:\\
+First case, $y>0$\\
+x = $\frac{-1 - \sqrt{1^2 + 4y}}{2y} < -\frac{2|y|+1}{2y} < -1$\\
+Second case, $y<0$\\
+x = $\frac{-1 - \sqrt{1^2 + 4y}}{2y} = -\frac{2|y|+1}{2y} > 1$\\
+This means x is outside of (-1,1).\\
+For $y \in \mathbb{R}$ and $y \neq 0$ there exist a value x = $\frac{-1 + \sqrt{1^2 + 4y}}{2y} \in (-1,1)$\\
+This means f is surjective.\\
+We already prove that f is both injective and surjective. Therefore f is bijective.
+
+\question{3}{Hamming Code}
+\part{1}\\
+$\beta_2 = d_2 \oplus d_3 \oplus d_6 \oplus d_7 \oplus d_10 \oplus d_11$
+
+\part{2}\\
+data: 01101010, which can be written as $p_1 p_2 d_1 p_4 d_2 d_3 d_4 p_8 d_5 d_6 d_7 d_8$.\\
+$p_1 = 1$\\
+$p_2 = 0$\\
+$p_3 = 0$\\
+$p_4 = 0$\\
+code = 100011001010
+
+\part{3}{(i)}\\
+data: 010011111000, which can be written as $p_1 p_2 b_1 p_4 b_2 b_3 b_4 p_8 b_5 b_6 b_7 b_8$\\
+$\beta_1 = p_1 \oplus b_1 \oplus b_2 \oplus b_4 \oplus b_5 \oplus b_7$\\
+$\beta_1 = 0 \oplus 0 \oplus 1 \oplus 1 \oplus 1 \oplus 0$\\
+$\beta_1 = 1$\\
+$\beta_2 = p_2 \oplus b_1 \oplus b_3 \oplus b_4 \oplus b_6 \oplus b_7$\\
+$\beta_2 = 1 \oplus 0 \oplus 1 \oplus 1 \oplus 0 \oplus 0$\\
+$\beta_2 = 1$\\
+$\beta_4 = p_4 \oplus b_2 \oplus b_3 \oplus b_4 \oplus b_8$\\
+$\beta_4 = 0 \oplus 1 \oplus 1 \oplus 1 \oplus 0$\\
+$\beta_4 = 1$\\
+$\beta_8 = p_8 \oplus b_5 \oplus b_6 \oplus b_7 \oplus b_8$\\
+$\beta_8 = 1 \oplus 1 \oplus 0 \oplus 0 \oplus 0$\\
+$\beta_8 = 0$\\
+$0111 = 7$\\
+Correct data = 010011011000\\
+data: 011101010010, which can be written as $p_1 p_2 b_1 p_4 b_2 b_3 b_4 p_8 b_5 b_6 b_7 b_8$\\
+$\beta_1 = p_1 \oplus b_1 \oplus b_2 \oplus b_4 \oplus b_5 \oplus b_7$\\
+$\beta_1 = 0 \oplus 1 \oplus 0 \oplus 0 \oplus 0 \oplus 1$\\
+$\beta_1 = 0$\\
+$\beta_2 = p_2 \oplus b_1 \oplus b_3 \oplus b_4 \oplus b_6 \oplus b_7$\\
+$\beta_2 = 1 \oplus 1 \oplus 1 \oplus 0 \oplus 0 \oplus 1$\\
+$\beta_2 = 0$\\
+$\beta_4 = p_4 \oplus b_2 \oplus b_3 \oplus b_4 \oplus b_8$\\
+$\beta_4 = 0 = 1 \oplus 0 \oplus 1 \oplus 0 \oplus 0$\\
+$\beta_4 = 0$\\
+$\beta_8 = p_8 \oplus b_5 \oplus b_6 \oplus b_7 \oplus b_8$\\
+$\beta_8 = 1 \oplus 0 \oplus 0 \oplus 1 \oplus 0$\\
+$\beta_8 = 0$\\
+$0000 = 0$\\
+Data is already correct.
+
+\question{4}{Same number of 0s and 1s}
+First we scan the input, starting from the left. For each symbol either 0 or 1 search for the matching symbol. If the start symbol is 0 find 1  and vice versa. Replace the pair with X. If the respective symbol is not found then reject. Else if all the symbol match then accept.
+
+\question{7}{$\beta$-reduction}
+\part{1}\\
+$(\lambda z.z) (\lambda z.zz)(\lambda z.zy)$\\
+= $(\lambda z.zz)(\lambda z.zy)$\\
+= $(\lambda z.zy)(\lambda z.zy)$\\
+= $ (\lambda z.zy)y$\\
+=$yy$
+
+\part{2}\\
+((($\lambda x. \lambda y.(xy)$)($\lambda$ y.y))w)\\
+= $(((\lambda x .\lambda y.xy)(\lambda y'.y'))w)$\\
+= $(((\lambda y.(\lambda y'.y')y))w)$\\
+= $(\lambda y'.y')w$\\
+=$w$
+
+\end{document}
+
