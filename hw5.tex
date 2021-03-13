@@ -1,0 +1,121 @@
+% You should title the file with a .tex extension (hw1.tex, for example)
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\question}[2] {\vspace{.25in} \hrule\vspace{0.5em}
+\noindent{\bf #1: #2} \vspace{0.5em}
+\hrule \vspace{.10in}}
+\renewcommand{\part}[1] {\vspace{.10in} {\bf (#1)}}
+
+\newcommand{\myname}{Natthakan Euaumpon}
+\newcommand{\myemail}{natthakaneuaumpon@gmail.com}
+\newcommand{\myhwnum}{5}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+ 
+\pagestyle{fancyplain}
+\lhead{\fancyplain{}{\textbf{HW\myhwnum}}}      % Note the different brackets!
+\rhead{\fancyplain{}{\myname\\ \myemail}}
+\chead{\fancyplain{}{ICCS310 }}
+
+\begin{document}
+
+\medskip                        % Skip a "medium" amount of space
+                                % (latex determines what medium is)
+                                % Also try: \bigskip, \littleskip
+
+\thispagestyle{plain}
+\begin{center}                  % Center the following lines
+{\Large ICCS310: Assignment \myhwnum} \\
+\myname \\
+\myemail \\
+March 2020 \\
+\end{center}
+
+\question{1}{Reject TM}
+Let AFSOC that REJECT$_{TM}$ is decidable. This mean there is a Turing Machine which decides it. Let the machine $R(<M,x>)$.\\
+\[
+\text{$R(<M,x>) =$}
+\left\{
+\begin{matrix}
+\text{reject if M accept x},\\ \text{accept if M reject x},\\ \text{reject if M loop on x}\\
+\end{matrix}
+\right.
+\]\\
+Using R we can create another machine D. Where D <M> where M is a machine. To prove this we run R on $<M,<M>>$. From this we have:\\
+\[
+\text{$D(<M>)$ =}
+\left\{
+\begin{matrix}
+\text{reject if M accept} <M>,\\ \text{accept if M reject} <M>,\\ \text{reject if M loop on} <M>\\
+\end{matrix}
+\right.
+\]\\
+Applying to $M=D$ we have:\\
+\[
+\text{$D(<D>)$ =}
+\left\{
+\begin{matrix}
+\text{reject if D accept} <D>,\\ \text{accept if D reject} <D>,\\ \text{reject if D loop on} <D>\\
+\end{matrix}
+\right.
+\]\\
+This contradict, so D and R can't exist. Therefore, REJECT$_{TM}$ is undecidable.
+
+\question{3}{Reverse on TM}
+AFSOC that T is deciable. Then let $M_T$ be recogniser of T sp that we can construct a recogniser of $A_{TM}$. Let $M' = $ on input $<M,w>$. First, lets construct a TM $M_w = $ on input $x$.\\
+\[
+\text{$M_w = $ on input $x$}
+\left\{
+\begin{matrix}
+\text{reject if } x = rev(w),\\ \text{run M on w and return the result if } x = w,\\ \text{reject if it's not fit on either of the above condition}\\
+\end{matrix}
+\right.
+\]\\
+Then run $M_T$ on $<M_w>$. From this we know that $M^{'}$ accept $<M,w>$ iff $M_T$ accept $<M,w>$ iff M doesn't accept w iff $<M,w> \in \bar{A_{TM}}$. Therefore T is undeciable.
+
+\question{4}{Undecidability}
+\part{1}\\
+Show that TOTAL is undeciable:\\
+AFSOC that TOTAL is decidable. This means there is a Turing Machine T that decides it. 
+Then we can use $T(<M,x>)$ where x is an input String. Let define a new machine N. Where N run on input y. Then we run the machine.\\
+\begin{enumerate}
+	\item If y is not the same as x hault
+	\item Feed y to machine M and let M compute x.
+	\item If M's computation on input x halts and rejects x, loop indefinitely. Else if M's computation on input x halts and accepts x, halt. Else continue looping.
+\end{enumerate}
+Then feed the string $<N>$ into T. The machine will return output if T accepts $<M, x>$. Which is impossible, so TOTAL is undecidable.
+
+\part{2}\\
+Show that FINITE us undecidable:\\
+AFSOC that FINITE is decideable. Let T be a TM that decide FINITE. Then we can construct another TM called U which will be use to decide $A_{TM}$. Let U = on input $<M,w>$ where w is an input string. Then we construct $<M_w>$ where:\\
+\[
+\text{$M_w = $ on input $x$}
+\left\{
+\begin{matrix}
+\text{reject if M reject w},\\ \text{accept if M accept w }\\
+\end{matrix}
+\right.
+\]\\
+Run T on $M_w$. If T accept reject and viceversa. If M accept w then it accept all input which means it is indefinite language. Hence T reject M, therefore FINITE is undefineable.
+
+\part{3}\\
+Show that REGULAR is undecidable:\\
+AFSOC that REGULAR is decidable. This mean there is a turing machine T that can decide it. Next, let construct another TM called U which will be use to decide $A_{TM}$. Let U = on input $<M,w>$ where w is an input string. Then we construct $<M_w>$ where:\\
+\[
+\text{$M_w = $ on input $x$}
+\left\{
+\begin{matrix}
+\text{accept if w if in the form of } 0^1n^1,\\ \text{reject otherwise }\\
+\end{matrix}
+\right.
+\]\\
+
+\end{document}
+
