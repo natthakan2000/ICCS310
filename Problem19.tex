@@ -1,0 +1,53 @@
+% You should title the file with a .tex extension (hw1.tex, for example)
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\question}[2] {\vspace{.25in} \hrule\vspace{0.5em}
+\noindent{\bf #1: #2} \vspace{0.5em}
+\hrule \vspace{.10in}}
+\renewcommand{\part}[1] {\vspace{.10in} {\bf (#1)}}
+
+\newcommand{\myname}{Natthakan Euaumpon!}
+\newcommand{\myemail}{natthakaneuaumpon@gmail.com}
+\newcommand{\myhwnum}{19}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+ 
+\pagestyle{fancyplain}
+\lhead{\fancyplain{}{\textbf{HW\myhwnum}}}      % Note the different brackets!
+\rhead{\fancyplain{}{\myname\\ \myemail}}
+\chead{\fancyplain{}{ICCS310 }}
+
+\begin{document}
+
+\medskip                        % Skip a "medium" amount of space
+                                % (latex determines what medium is)
+                                % Also try: \bigskip, \littleskip
+
+\thispagestyle{plain}
+\begin{center}                  % Center the following lines
+{\Large ICCS310: Assignment \myhwnum} \\
+\myname \\
+\myemail \\
+March 2021 \\
+\end{center}
+
+\question{1}{Prove that $k-Coloring \leq_p (k+1)-Coloring$}
+We know that k-Coloring is NP-Complete\\
+Let the input to $(k+1)$Coloring be graph $G$. So now $G$ is $(k+1)$ colored we want to reduce $G$ to $k-Coloring$ by construct a new graph called $G^{'}$. We can done this by removing a node and every edges connected to that node. Hence $(k+1)$Coloring is NP-Complete.
+
+\question{2}{Prove that $5-Coloring \leq_p 4-Coloring$}
+We know that $4-Coloring$ is NP-Complete.\\
+We can reduce 5-Coloring to 4-Coloring by mapping graph $G$ into a new graph $G^{'}$. Where $G \in 4-Coloring$ iff $G^{'} \in 5-Coloring$. This can be done by adding a new node y and connect them to each node in $G^{'}$. If $G$ is 4 colorable then $G^{'}$ can be 5 colored exactly as $G$ with a node y being the node that color with an additional color. Thus it is 4-Coloring and 4-Coloring is NP-Complete.
+
+\question{3}{Argue that $P \subseteq coNP$, and hence $P \subseteq NP \cap coNP$}
+WLOG let $x \in P$. We claim that $x \subseteq NP, \forall x \in P$. Then $x$ is use as a verifier in NP. We also claim that $x \subseteq coNP, \forall x \in P$. Then $x$ is use as a verifier in coNP as well. Therfore $P \subseteq coNP$, and hence $P \subseteq NP \cap coNP$.
+
+\end{document}
+

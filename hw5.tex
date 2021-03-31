@@ -35,7 +35,7 @@
 {\Large ICCS310: Assignment \myhwnum} \\
 \myname \\
 \myemail \\
-March 2020 \\
+March 2021 \\
 \end{center}
 
 \question{1}{Reject TM}
@@ -48,7 +48,7 @@ Let AFSOC that REJECT$_{TM}$ is decidable. This mean there is a Turing Machine w
 \end{matrix}
 \right.
 \]\\
-Using R we can create another machine D. Where D <M> where M is a machine. To prove this we run R on $<M,<M>>$. From this we have:\\
+Using R we can create another machine D. Where D $<M> $ where M is a machine. To prove this we run R on $<M,<M>>$. From this we have:\\
 \[
 \text{$D(<M>)$ =}
 \left\{
@@ -67,6 +67,27 @@ Applying to $M=D$ we have:\\
 \right.
 \]\\
 This contradict, so D and R can't exist. Therefore, REJECT$_{TM}$ is undecidable.
+
+\question{2}{Accept VS. Reject}
+\part{1}\\
+Prove that ACCEPT$_{TM} \leq$ REJECT$_{TM}$:\\
+WLOG let assume that there are 2 machine that decides ACCEPT$_{TM}$ and REJECT$_{TM}$, $M_a$ and $M_r$. Where $M_a$ decides ACCEPT$_{TM}$ and $M_r$ decides REJECT$_{TM}$ respectively. The given input is $<M,x>$ let:
+\begin{enumerate}
+	\item Create $M^{'}$ from $M$ by reversing accepting and rejecting states.
+	\item Run $M_r$ with $<M^{'},x>$
+	\item If $M_r$ accept then we reject and viceversa
+\end{enumerate}
+From this we know that $M_a$ will be able to decide ACCEPT$_{TM}$ if it is given a REJECT$_{TM}$. Therefore, ACCEPT$_{TM} \leq$ REJECT$_{TM}$.
+
+\part{2}\\
+Prove that REJECT$_{TM}$$\leq$ ACCEPT$_{TM}$:\\
+WLOG let assume that there are 2 machine that decides ACCEPT$_{TM}$ and REJECT$_{TM}$, $M_a$ and $M_r$. Where $M_a$ decides ACCEPT$_{TM}$ and $M_r$ decides REJECT$_{TM}$ respectively. The given input is $<M,x>$ let:
+\begin{enumerate}
+	\item Create $M^{'}$ from $M$ by reversing accepting and rejecting states.
+	\item Run $M_a$ with $<M^{'},x>$
+	\item If $M_a$ accept then we reject and viceversa
+\end{enumerate}
+From this we know that $M_r$ will be able to decide REJECT$_{TM}$ if it is given an ACCEPT$_{TM}$. Therefore, REJECT$_{TM} \leq$ ACCEPT$_{TM}$.
 
 \question{3}{Reverse on TM}
 AFSOC that T is deciable. Then let $M_T$ be recogniser of T sp that we can construct a recogniser of $A_{TM}$. Let $M' = $ on input $<M,w>$. First, lets construct a TM $M_w = $ on input $x$.\\
@@ -116,6 +137,26 @@ AFSOC that REGULAR is decidable. This mean there is a turing machine T that can 
 \end{matrix}
 \right.
 \]\\
+From this we know that REGULAR is undecidable.
+
+\question{5}{TOTAL Is No Harder Than Finite}
+WLOG let assume that there are 2 macine $M_t$ and $M_f$ where $M_t$ decides TOTAL and $M_f$ decides FINITE respectively. The given input is $<M,x>$ where x is an input string let:\\
+\begin{enumerate}
+	\item Create $M^{'}$ from $M$ by reversing accepting and rejecting states.
+	\item Run $M_f$ with $<M^{'},x>$
+	\item If $M_f$ accept then we reject and viceversa
+\end{enumerate} 
+From this we know that $M_t$ will be able to decide TOTAL if it is given a FINITE. Therefore, TOTAL $ \leq$ FINITE.
+
+\question{6}{FINITE Is No Harder Than TOTAL}
+WLOG let assume that there are 2 macine $M_t$ and $M_f$ where $M_t$ decides TOTAL and $M_f$ decides FINITE respectively. The given input is $<M,x>$ where x is an input string let:\\
+\begin{enumerate}
+	\item Create $M^{'}$ from $M$ by reversing accepting and rejecting states.
+	\item Run $M_t$ with $<M^{'},x>$
+	\item If $M_t$ accept then we reject and viceversa
+\end{enumerate} 
+From this we know that $M_f$ will be able to decide FINITE if it is given a TOTAL. Therefore, FINITE $ \leq$ TOTAL.
+
 
 \end{document}
 
